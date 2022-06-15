@@ -2,6 +2,7 @@
 const { Model, DataTypes, Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
+// Create the Comment model
 class Comment extends Model {}
 
 Comment.init(
@@ -31,7 +32,7 @@ Comment.init(
     },
 
     post_id: {
-      // These two define the user id as an integer value that cannot be null, otherwise it will be rejected
+      // These two define the post id as an integer value that cannot be null, otherwise it will be rejected
       type: DataTypes.INTEGER,
       allowNull: false,
 
@@ -56,7 +57,7 @@ Comment.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "product",
+    modelName: "comment",
   }
 );
 module.exports = Comment;
