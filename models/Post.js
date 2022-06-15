@@ -20,7 +20,7 @@ Post.init(
       autoIncrement: true,
     },
     title: {
-      // These two define the title as an string value that cannot be null, otherwise it will be inserted
+      // These two define the title as a string value that cannot be null, otherwise it will be inserted
       type: DataTypes.STRING,
       allowNull: false,
     },
