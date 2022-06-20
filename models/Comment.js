@@ -1,6 +1,6 @@
 // Importing important parts of sequelize library
-const { Model, DataTypes, Model, DataTypes } = require("sequelize");
-const sequelize = require("../config/connection");
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connections");
 
 // Create the Comment model
 class Comment extends Model {}
