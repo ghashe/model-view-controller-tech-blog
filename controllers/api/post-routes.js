@@ -7,7 +7,6 @@ const withAuth = require("../../utils/auth");
 
 // get all posts
 router.get("/", (request, response) => {
-  console.log("======================");
   Post.findAll({
     attributes: ["id", "title", "created_at", "post_content"],
     order: [["created_at", "DESC"]],
@@ -53,17 +52,51 @@ router.get("/", (request, response) => {
     });
 });
 
-// get post by id
-router.get("/:id", (request, response) => {
+// // get post by id
+// router.get("/:id", (request, response) => {
+//   Post.findOne({
+//     where: {
+//       id: request.params.id,
+//     },
+//     attributes: ["id", "title", "created_at", "post_content"],
+//     // Including associated Comments and User data
+
+//     include: [
+//       // Including associated Comments data
+//       {
+//         model: Comment,
+//         attributes: ["id", "comment_text", "post_id", "user_id"],
+//         include: {
+//           model: User,
+//           attributes: ["username", "twitter", "github"],
+//         },
+//       },
+//       // Including associated User data
+//       {
+//         model: User,
+//         attributes: ["username", "twitter", "github"],
+//       },
+//     ],
+//   })
+//     .then((dbPostData) => response.json(dbPostData))
+//     .catch((err) => {
+//       console.log(err);
+//       response.status(500).json(err);
+//     });
+// });
+
+router.get("/:id", (req, res) => {
   Post.findOne({
     where: {
-      id: request.params.id,
+      id: req.params.id,
     },
     attributes: ["id", "title", "created_at", "post_content"],
-    // Including associated Comments and User data
-
     include: [
-      // Including associated Comments data
+      // include the Comment model here:
+      {
+        model: User,
+        attributes: ["username", "twitter", "github"],
+      },
       {
         model: Comment,
         attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
@@ -72,17 +105,18 @@ router.get("/:id", (request, response) => {
           attributes: ["username", "twitter", "github"],
         },
       },
-      // Including associated User data
-      {
-        model: User,
-        attributes: ["username", "twitter", "github"],
-      },
     ],
   })
-    .then((dbPostData) => response.json(dbPostData))
+    .then((dbPostData) => {
+      if (!dbPostData) {
+        res.status(404).json({ message: "No post found with this id" });
+        return;
+      }
+      res.json(dbPostData);
+    })
     .catch((err) => {
       console.log(err);
-      response.status(500).json(err);
+      res.status(500).json(err);
     });
 });
 
@@ -91,7 +125,7 @@ router.post("/", withAuth, (request, response) => {
   Post.create({
     title: request.body.title,
     post_content: request.body.post_content,
-    user_id: request.body.user_id,
+    user_id: request.session.user_id,
   })
     .then((dbPostData) => response.json(dbPostData))
     .catch((err) => {
