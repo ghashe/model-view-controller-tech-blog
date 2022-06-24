@@ -6,7 +6,9 @@ const withAuth = require("../../utils/auth");
 
 // get all comments
 router.get("/", (request, response) => {
-  Comment.findAll({})
+  Comment.findAll({
+    attributes: ["id", "user_id", "post_id", "comment_text", "created_at"],
+  })
     .then((dbCommentData) => response.json(dbCommentData))
     .catch((err) => {
       console.log(err);

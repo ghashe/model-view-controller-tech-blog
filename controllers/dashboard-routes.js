@@ -43,7 +43,7 @@ router.get("/", withAuth, (request, response) => {
 });
 
 router.get("/edit/:id", withAuth, (request, response) => {
-  Post.findAll({
+  Post.findOne({
     where: {
       id: request.params.id,
     },
