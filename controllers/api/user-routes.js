@@ -37,7 +37,7 @@ router.get("/:id", (request, response) => {
       // Including associated Comments data
       {
         model: Comment,
-        attributes: ["id", "comment_text", "created_at"],
+        attributes: ["id", "comment_text"],
         include: {
           model: Post,
           attributes: ["title"],
@@ -72,7 +72,7 @@ router.post("/", (request, response) => {
     password: request.body.password,
     twitter: request.body.twitter,
     github: request.body.github,
-  }).then((dbPostData) => {
+  }).then((dbUserData) => {
     request.session.save(() => {
       request.session.user_id = dbUserData.id;
       request.session.username = dbUserData.username;
@@ -81,7 +81,7 @@ router.post("/", (request, response) => {
       request.session.loggedIn = true;
 
       // Once a user has been successfully created, convert the data to JSON format and send it to the client
-      response.json(dbPostData);
+      response.json(dbUserData);
     });
   });
 });
@@ -120,7 +120,7 @@ router.post("/login", (request, response) => {
       request.session.loggedIn = true;
 
       response.json({
-        user: dbPostData,
+        user: dbUserData,
         message: "You have now successfully logged in!",
       });
     });

@@ -4,7 +4,7 @@ const Sequelize = require("sequelize");
 require("dotenv").config();
 
 // Connect to an existing account or generate a new account by providing a MySQL username and password
-
+let sequelize;
 if (process.env.JAWSDB_URL) {
   sequelize = new Sequelize(process.env.JAWSDB_URL);
 } else {

@@ -16,7 +16,7 @@ router.get("/", (request, response) => {
       // Including associated Comments data
       {
         model: Comment,
-        attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
+        attributes: ["id", "comment_text", "post_id", "user_id"],
         include: {
           model: User,
           attributes: ["username", "twitter", "github"],
@@ -65,7 +65,7 @@ router.get("/:id", (request, response) => {
       // Including associated Comments data
       {
         model: Comment,
-        attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
+        attributes: ["id", "comment_text", "post_id", "user_id"],
         include: {
           model: User,
           attributes: ["username", "twitter", "github"],
@@ -90,7 +90,7 @@ router.post("/", withAuth, (request, response) => {
   Post.create({
     title: request.body.title,
     post_content: request.body.post_content,
-    user_id: request.body.user_id,
+    user_id: request.session.user_id,
   })
     .then((dbPostData) => response.json(dbPostData))
     .catch((err) => {

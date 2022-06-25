@@ -6,7 +6,6 @@ const withAuth = require("../utils/auth");
 router.get("/", (request, response) => {
   Post.findAll({
     attributes: ["id", "title", "created_at", "post_content"],
-    order: [["created_at", "DESC"]],
 
     // Including associated Comment and User data
 
@@ -58,7 +57,7 @@ router.get("/signup", (request, response) => {
   response.render("signup");
 });
 
-router.get("/post:id", (request, response) => {
+router.get("/post/:id", (request, response) => {
   Post.findOne({
     where: {
       id: request.params.id,

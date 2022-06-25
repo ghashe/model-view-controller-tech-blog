@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A TEACH BLOG</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+
+<div class="wrapper">
+  <header>
+    <h1 class="has-text-black px-3 py-3 has-text-weight-bold">A TEACH BLOG</h1>
+    <nav class="navbar mt-2">
+      {{#if loggedIn}}
+      <a href="/" class="navbar-item is-hoverable pt-1">Home Page</a>
+      <a href="/dashboard" class="navbar-item is-hoverable pt-1">Dashboard</a>
+      <a href="/dashboard/create/" class="navbar-item is-hoverable pt-1 mr-4">Create a Post</a>
+      <button id="logout" class="button is-danger">Log Out</button>
+      {{else}}
+      <a href="/" class="navbar-item is-hoverable pt-1">Home Page</a>
+      <a href="/login" class="button signon">Log In</a>
+      {{/if}}
+    </nav>
+  </header>
+
+  <main>
+    {{{ body }}}
+  </main>
+
+</div>
+<footer>
+  <ul id="nav" class="nav">
+    <li>
+      <a href="/">Home Page</a>
+    </li>
+
+    <li>
+      <a href="/dashboard/">Dashboard</a>
+    </li>
+    <li>
+
+  </ul>
+
+  <ul id="contacts" class="social-media-icons">
+    <li>
+      <a href="mailto:emandaabyou@gmail.com?subject=Mail from Our Site" target="_blank" rel="My email address">
+        <ion-icon name="mail-outline"></ion-icon>
+      </a>
+      <a href="https://www.linkedin.com/in/abyou-geletu-5ba16622b" target="_blank" rel="My Linkedin Account">
+        <ion-icon name="logo-linkedin"></ion-icon>
+      </a>
+    </li>
+    <li>
+      <a href="https://www.facebook.com/abyou.jiru/" target="_blank" rel="My Facebook Account">
+        <ion-icon name="logo-facebook"></ion-icon>
+      </a>
+    </li>
+    <li>
+      <a href="https://twitter.com/AbyouJiru" target="_blank" rel="My Twitter Account">
+        <ion-icon name="logo-twitter"></ion-icon>
+      </a>
+    </li>
+    <li>
+      <a href="https://www.instagram.com/ins_abyou/" target="_blank" rel="My Instagram Account">
+        <ion-icon name="logo-instagram"></ion-icon>
+      </a>
+    </li>
+  </ul>
+
+  <ul class="menu-cont">
+
+    <li>
+      <a href="https://ghashe.github.io/about-mvc-tech-blog/" target="_blank" rel="About">About</a>
+    </li>
+
+    <li><a href="https://ghashe.github.io/terms-of-condition/" target="_blank" rel="terms of use">Terms</a></li>
+
+    <li>
+      <a href="https://github.com/ghashe" target="_blank" rel="Github page">Created by</a>
+    </li>
+
+    <li>
+      <a href="https://github.com/ghashe/model-view-controller-tech-blog" target="_blank" rel="Source code">Source
+        Code <i class="fab fa-github"></i></a>
+    </li>
+  </ul>
+
+
+  <p>©2022 | All Rights Reserved</p>
+
+</footer>
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+{{#if loggedIn}}
+<script src="/javascript/logout.js"></script>
+{{/if}}
+</body>
+
+</html>
