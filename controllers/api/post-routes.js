@@ -52,71 +52,36 @@ router.get("/", (request, response) => {
     });
 });
 
-// // get post by id
-// router.get("/:id", (request, response) => {
-//   Post.findOne({
-//     where: {
-//       id: request.params.id,
-//     },
-//     attributes: ["id", "title", "created_at", "post_content"],
-//     // Including associated Comments and User data
-
-//     include: [
-//       // Including associated Comments data
-//       {
-//         model: Comment,
-//         attributes: ["id", "comment_text", "post_id", "user_id"],
-//         include: {
-//           model: User,
-//           attributes: ["username", "twitter", "github"],
-//         },
-//       },
-//       // Including associated User data
-//       {
-//         model: User,
-//         attributes: ["username", "twitter", "github"],
-//       },
-//     ],
-//   })
-//     .then((dbPostData) => response.json(dbPostData))
-//     .catch((err) => {
-//       console.log(err);
-//       response.status(500).json(err);
-//     });
-// });
-
-router.get("/:id", (req, res) => {
+// get post by id
+router.get("/:id", (request, response) => {
   Post.findOne({
     where: {
-      id: req.params.id,
+      id: request.params.id,
     },
     attributes: ["id", "title", "created_at", "post_content"],
+    // Including associated Comments and User data
+
     include: [
-      // include the Comment model here:
-      {
-        model: User,
-        attributes: ["username", "twitter", "github"],
-      },
+      // Including associated Comments data
       {
         model: Comment,
-        attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
+        attributes: ["id", "comment_text", "post_id", "user_id"],
         include: {
           model: User,
           attributes: ["username", "twitter", "github"],
         },
       },
+      // Including associated User data
+      {
+        model: User,
+        attributes: ["username", "twitter", "github"],
+      },
     ],
   })
-    .then((dbPostData) => {
-      if (!dbPostData) {
-        res.status(404).json({ message: "No post found with this id" });
-        return;
-      }
-      res.json(dbPostData);
-    })
+    .then((dbPostData) => response.json(dbPostData))
     .catch((err) => {
       console.log(err);
-      res.status(500).json(err);
+      response.status(500).json(err);
     });
 });
 
