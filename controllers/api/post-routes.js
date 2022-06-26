@@ -115,11 +115,9 @@ router.put("/:id", withAuth, (request, response) => {
     .then((dbPostData) => {
       if (!dbPostData) {
         // Sending a status 400 message to the user if post with the given id is not found
-        response
-          .status(400)
-          .json(
-            `Sorry, No post with id ${request.params.id} has been found! Please check your input and try again!`
-          );
+        response.status(400).json({
+          message: `Sorry, No post with id ${request.params.id} has been found! Please check your input and try again!`,
+        });
 
         // Sending the post to the user if post with the given id is found
         return;
