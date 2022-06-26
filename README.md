@@ -27,27 +27,22 @@ They can edit titles and content or delete their own posts as well.
 ### Home Page
 
 ![alt text](./assets/images/home-page.png)
-<br/> <br/>
 
 ### Log In Page
 
 ![alt text](./assets/images/login-page.png)
-<br/> <br/>
 
 ### Create A New Account Page
 
 ![alt text](./assets/images/signup-page.png)
-<br/> <br/>
 
 ### Dashboard
 
 ![alt text](./assets/images/dashboard.png)
-<br/> <br/>
 
 ### Add Post
 
 ![alt text](./assets/images/add-post-page.png)
-<br/> <br/>
 
 ### Add Comment
 
