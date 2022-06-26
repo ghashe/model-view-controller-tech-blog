@@ -52,9 +52,6 @@ They can edit titles and content or delete their own posts as well.
 ### Add Comment
 
 ![alt text](./assets/images/add-comment-page.png)
-<br/> <br/>
-
-## Link to Live Site
 
 ## Installation and Deployment
 
