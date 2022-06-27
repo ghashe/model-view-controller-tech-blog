@@ -16,11 +16,9 @@
 
 ## Description
 
-This is a full stack web application that uses the Model-View-Controller (MVC) paradigm to create <br/>
-a blog-style website where users can create an account, edit their information, make posts, edit posts, <br/>
-and comment on other user's posts. Users can view posts and visit links as a visitor, create their own <br/>
-account, and as an authenticated user they can add their own posts and comment on other posts as well. <br/>
-They can edit titles and content or delete their own posts as well.
+This is a full stack web application that uses the Model-View-Controller (MVC) paradigm to create a blog-style website where users can create an account, edit their information, make posts, edit posts, and comment on other user's posts.
+
+Users can view posts and visit links as a visitor, create their own account, and as an authenticated user they can add their own posts and comment on other posts as well. They can edit titles and content or delete their own posts as well.
 
 ## Website Preview
 
@@ -54,12 +52,9 @@ They can edit titles and content or delete their own posts as well.
 
 ## Installation
 
-In order to use this application, simply git clone the repo to your local so that you have the <br/>
-Node project there on your local machine. Use npm install to install the npm package dependencies <br/>
-listed in your package.json.
+In order to use this application, simply git clone the repo to your local so that you have the Node project there on your local machine. Use npm install to install the npm package dependencies listed in your package.json.
 
-To use the app locally, using the command line, you should run node server.js to start the application, <br/>
-and then open https://localhost:3001/ in any web browser to launch the app.
+To use the app locally, using the command line, you should run node server.js to start the application, and then open https://localhost:3001/ in any web browser to launch the app.
 
 - The app is also live at the following link:
 - [live on Heroku](https://aqueous-meadow-86713.herokuapp.com/)
@@ -121,7 +116,7 @@ It would be great if you could contribute in any way
 
 ## Questions
 
-If you have any questions, feel free to contact me via the following contact information:
+    If you have any questions, feel free to contact me via the following contact information:
 
 - Emain: emandaabyou@gmail.com
 - GitHub account: [ghashe](https://github.com/ghashe)
