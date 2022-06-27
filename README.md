@@ -73,7 +73,7 @@ and then open https://localhost:3001/ in any web browser to launch the app.
 
 ⚡️ Accesible  
 ⚡️ Dynamic  
-⚡️ responsive
+⚡️ responsive  
 ⚡️ Efficient  
 ⚡️ Easy to read  
 ⚡️ Easy to modify
